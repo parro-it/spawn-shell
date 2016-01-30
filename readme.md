@@ -26,7 +26,7 @@ npm install --save spawn-shell
 ```javascript
   const spawnShell = require('spawn-shell');
 
-
+  // simple to use with promise
   const exitCode = await spawnShell('echo "it works" && exit 42');
   // output `it works` to stdout
   // exitCode === 42
