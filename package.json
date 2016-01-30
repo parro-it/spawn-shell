@@ -1,14 +1,14 @@
 {
   "name": "spawn-shell",
   "version": "0.0.1",
-  "description": "",
+  "description": "Run shell commands using child_process#spawn.",
   "repository": "parro-it/spawn-shell",
   "license": "MIT",
   "author": "parro-it",
   "scripts": {
     "test": "eslint . && node test | faucet"
   },
-  "keywords": [],
+  "keywords": ["spawn", "shell", "sh", "bash", "multiplatform"],
   "engines": {
     "node": ">=5"
   },
