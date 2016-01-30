@@ -13,20 +13,29 @@
     "node": ">=5"
   },
   "eslintConfig": {
-    "extends": "js",
-    "env": {
-      "node": true,
-      "browser": true,
-      "es6": true
+    "extends": [
+      "js",
+      "features"
+    ],
+    "ecmaFeatures": {
+      "generators": true
     }
   },
   "devDependencies": {
+    "co": "^4.6.0",
+    "concat-stream": "^1.5.1",
     "eslint": "^1.10.3",
-    "eslint-config-js": "^2.0.2",
+    "eslint-config-features": "^1.1.0",
+    "eslint-config-js": "^3.1.0",
     "faucet": "0.0.1",
     "tape": "^4.2.2"
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "deep-assign": "^2.0.0",
+    "default-shell": "^1.0.0",
+    "npm-run-path": "^1.0.0"
+  }
 }

@@ -1,8 +1,42 @@
 const test = require('tape');
 const spawnShell = require('./');
+const concat = require('concat-stream');
 
-test('it work!', t => {
-  const result = spawnShell();
-  t.equal(result, 42);
-  t.end();
+test('Use shell to run commands', t => {
+
+  const resultPromise = spawnShell('echo "it works"', {
+    stdio: [0, 'pipe', 2]
+  });
+
+  resultPromise.process.stdout.pipe(concat(
+    {encoding: 'string'},
+    output => {
+      t.equal(output, 'it works\n');
+      t.end();
+    }
+  ));
+
+});
+
+test('return a promise that resolve with process exit code', t => {
+
+  const resultPromise = spawnShell('exit 1');
+
+  resultPromise.then(exitCode => {
+    t.equal(exitCode, 1);
+    t.end();
+  });
+
+});
+
+
+test('return a promise that rejects on spawn errors', t => {
+
+  const resultPromise = spawnShell('', { shell: 'unknown' });
+
+  resultPromise.catch(err => {
+    t.equal(err.code, 'ENOENT');
+    t.end();
+  });
+
 });
