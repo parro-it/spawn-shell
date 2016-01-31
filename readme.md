@@ -27,17 +27,17 @@ npm install --save spawn-shell
   const spawnShell = require('spawn-shell');
 
   // simple to use with promise
-  const exitCode = await spawnShell('echo "it works" && exit 42');
+  const exitCode = await spawnShell('echo "it works" && exit 42').exitPromise;
   // output `it works` to stdout
   // exitCode === 42
 
 
   // access ChildProcess instance before promise is resolved
-  const resultPromise = spawnShell('echo "it works"', {
+  const p = spawnShell('echo "it works"', {
     stdio: [0, 'pipe', 2]
   });
 
-  resultPromise.process.stdout.pipe(concat(
+  p.stdout.pipe(concat(
     {encoding: 'string'},
     output => {
       // output === 'it works'
