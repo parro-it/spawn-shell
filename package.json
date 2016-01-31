@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "co": "^4.6.0",
-    "concat-stream": "^1.5.1",
     "eslint": "^1.10.3",
     "eslint-config-features": "^1.1.0",
     "eslint-config-js": "^3.1.0",
     "faucet": "0.0.1",
+    "stream-string": "^1.0.2",
     "tape": "^4.2.2"
   },
   "files": [

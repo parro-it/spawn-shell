@@ -1,33 +1,27 @@
 const test = require('tape');
 const spawnShell = require('./');
-const concat = require('concat-stream');
+const concat = require('stream-string');
+const co = require('co');
 
-test('Use shell to run commands', t => {
+test('Use shell to run commands', co.wrap(function * (t) {
 
   const resultPromise = spawnShell('echo "it works"', {
     stdio: [0, 'pipe', 2]
   });
 
-  resultPromise.process.stdout.pipe(concat(
-    {encoding: 'string'},
-    output => {
-      t.equal(output, 'it works\n');
-      t.end();
-    }
-  ));
+  const output = yield concat(resultPromise.process.stdout);
+  t.equal(output, 'it works\n');
+  t.end();
 
-});
+}));
 
-test('Return a promise that resolve with process exit code', t => {
+test('Return a promise that resolve with process exit code', co.wrap(function * (t) {
 
-  const resultPromise = spawnShell('exit 1');
+  const exitCode = yield spawnShell('exit 1');
+  t.equal(exitCode, 1);
+  t.end();
 
-  resultPromise.then(exitCode => {
-    t.equal(exitCode, 1);
-    t.end();
-  });
-
-});
+}));
 
 
 test('return a promise that rejects on spawn errors', t => {
@@ -42,18 +36,14 @@ test('return a promise that rejects on spawn errors', t => {
 });
 
 
-test('inject your package `node_modules/.bin` directory in path', t => {
+test('inject your package `node_modules/.bin` directory in path', co.wrap(function * (t) {
 
   const resultPromise = spawnShell('which eslint', {
     stdio: [0, 'pipe', 2]
   });
 
-  resultPromise.process.stdout.pipe(concat(
-    {encoding: 'string'},
-    output => {
-      t.equal(output, __dirname + '/node_modules/.bin/eslint\n');
-      t.end();
-    }
-  ));
+  const output = yield concat(resultPromise.process.stdout);
+  t.equal(output, __dirname + '/node_modules/.bin/eslint\n');
+  t.end();
 
-});
+}));
