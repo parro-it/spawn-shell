@@ -23,7 +23,7 @@ function shellFlags() {
 }
 
 function resolveOnProcessExit(p) {
-  const exitPromise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     let fullFilled = false;
     p.on('error', err => {
       fullFilled = true;
@@ -36,18 +36,15 @@ function resolveOnProcessExit(p) {
       }
     });
   });
-
-  exitPromise.process = p;
-
-  return exitPromise;
 }
 
 module.exports = function spawnShell(command, options) {
   const opts = merge({}, defaultOptions, options);
-  const processPromise = spawn(
+  const p = spawn(
     opts.shell,
     shellFlags().concat(command),
     opts
   );
-  return resolveOnProcessExit(processPromise);
+  p.exitPromise = resolveOnProcessExit(p);
+  return p;
 };

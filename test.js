@@ -5,30 +5,31 @@ const co = require('co');
 
 test('Use shell to run commands', co.wrap(function * (t) {
 
-  const resultPromise = spawnShell('echo "it works"', {
+  const p = spawnShell('echo "it works"', {
     stdio: [0, 'pipe', 2]
   });
 
-  const output = yield concat(resultPromise.process.stdout);
+  const output = yield concat(p.stdout);
   t.equal(output, 'it works\n');
   t.end();
 
 }));
 
-test('Return a promise that resolve with process exit code', co.wrap(function * (t) {
+test('Returned ChildProcess has a exitPromise prop that resolve with process exit code', co.wrap(function * (t) {
 
-  const exitCode = yield spawnShell('exit 1');
+  const p = spawnShell('exit 1');
+  const exitCode = yield p.exitPromise;
   t.equal(exitCode, 1);
   t.end();
 
 }));
 
 
-test('return a promise that rejects on spawn errors', t => {
+test('Returned ChildProcess exitPromise is rejected on spawn errors', t => {
 
-  const resultPromise = spawnShell('', { shell: 'unknown' });
+  const p = spawnShell('', { shell: 'unknown' });
 
-  resultPromise.catch(err => {
+  p.exitPromise.catch(err => {
     t.equal(err.code, 'ENOENT');
     t.end();
   });
@@ -38,11 +39,11 @@ test('return a promise that rejects on spawn errors', t => {
 
 test('inject your package `node_modules/.bin` directory in path', co.wrap(function * (t) {
 
-  const resultPromise = spawnShell('which eslint', {
+  const p = spawnShell('which eslint', {
     stdio: [0, 'pipe', 2]
   });
 
-  const output = yield concat(resultPromise.process.stdout);
+  const output = yield concat(p.stdout);
   t.equal(output, __dirname + '/node_modules/.bin/eslint\n');
   t.end();
 
