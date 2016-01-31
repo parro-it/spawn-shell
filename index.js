@@ -3,7 +3,7 @@
 const childProcess = require('child_process');
 const spawn = childProcess.spawn;
 const defaultShell = require('default-shell');
-const deepAssign = require('deep-assign');
+const merge = require('merge-options');
 const npmRunPath = require('npm-run-path');
 
 const defaultOptions = {
@@ -43,7 +43,7 @@ function resolveOnProcessExit(p) {
 }
 
 module.exports = function spawnShell(command, options) {
-  const opts = deepAssign({}, defaultOptions, options);
+  const opts = merge({}, defaultOptions, options);
   const processPromise = spawn(
     opts.shell,
     shellFlags().concat(command),

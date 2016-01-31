@@ -40,8 +40,8 @@
     "index.js"
   ],
   "dependencies": {
-    "deep-assign": "^2.0.0",
     "default-shell": "^1.0.0",
+    "merge-options": "0.0.42",
     "npm-run-path": "^1.0.0"
   }
 }
