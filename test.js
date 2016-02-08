@@ -40,7 +40,8 @@ test('Returned ChildProcess exitPromise is rejected on spawn errors', t => {
 test('inject your package `node_modules/.bin` directory in path', co.wrap(function * (t) {
 
   const p = spawnShell('which eslint', {
-    stdio: [0, 'pipe', 2]
+    stdio: [0, 'pipe', 2],
+    shell: 'sh'
   });
 
   const output = yield concat(p.stdout);
