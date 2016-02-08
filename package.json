@@ -22,15 +22,12 @@
     "extends": [
       "js",
       "features"
-    ],
-    "ecmaFeatures": {
-      "generators": true
-    }
+    ]
   },
   "devDependencies": {
     "co": "^4.6.0",
     "eslint": "^1.10.3",
-    "eslint-config-features": "^1.1.0",
+    "eslint-config-features": "^1.1.4",
     "eslint-config-js": "^3.1.0",
     "faucet": "0.0.1",
     "stream-string": "^1.0.2",
