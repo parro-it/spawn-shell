@@ -6,10 +6,9 @@ const defaultShell = require('default-shell');
 const merge = require('merge-options');
 const npmRunPath = require('npm-run-path');
 
+
 const defaultOptions = {
-  env: {
-    PATH: npmRunPath()
-  },
+  env: {},
   shell: defaultShell,
   stdio: [0, 1, 2],
   windowsVerbatimArguments: process.platform === 'win32'
@@ -40,6 +39,8 @@ function resolveOnProcessExit(p) {
 
 module.exports = function spawnShell(command, options) {
   const opts = merge({}, defaultOptions, options);
+  opts.env.PATH = npmRunPath({path: opts.env.PATH});
+
   const p = spawn(
     opts.shell,
     shellFlags().concat(command),
