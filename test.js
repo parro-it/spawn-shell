@@ -1,3 +1,4 @@
+import {join} from 'path';
 import test from 'ava';
 import concat from 'stream-string';
 import spawnShell from './';
@@ -31,5 +32,5 @@ test('inject your package `node_modules/.bin` directory in path', async t => {
 	});
 
 	const output = await concat(p.stdout);
-	t.is(output, `${__dirname}/node_modules/.bin/eslint\n`);
+	t.is(output, join(__dirname, '/node_modules/.bin/eslint\n'));
 });
