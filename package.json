@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "parro-it",
   "scripts": {
-    "test": "eslint . && node test | faucet"
+    "test": "ava && xo"
   },
   "keywords": [
     "spawn",
@@ -16,7 +16,7 @@
     "multiplatform"
   ],
   "engines": {
-    "node": ">=5"
+    "node": ">=4"
   },
   "eslintConfig": {
     "extends": [
@@ -25,13 +25,9 @@
     ]
   },
   "devDependencies": {
-    "co": "^4.6.0",
-    "eslint": "^1.10.3",
-    "eslint-config-features": "^1.1.4",
-    "eslint-config-js": "^3.1.0",
-    "faucet": "0.0.1",
+    "ava": "^0.18.2",
     "stream-string": "^1.0.2",
-    "tape": "^4.2.2"
+    "xo": "^0.19.0"
   },
   "files": [
     "index.js"
