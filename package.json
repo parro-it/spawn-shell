@@ -18,12 +18,6 @@
   "engines": {
     "node": ">=4"
   },
-  "eslintConfig": {
-    "extends": [
-      "js",
-      "features"
-    ]
-  },
   "devDependencies": {
     "ava": "^0.18.2",
     "stream-string": "^1.0.2",
