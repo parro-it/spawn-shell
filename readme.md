@@ -1,5 +1,7 @@
 # spawn-shell
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/parro-it/spawn-shell.svg)](https://greenkeeper.io/)
+
 > Run shell commands using child_process#spawn.
 
 [![Travis Build Status](https://img.shields.io/travis/parro-it/spawn-shell/master.svg)](http://travis-ci.org/parro-it/spawn-shell)
