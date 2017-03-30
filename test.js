@@ -26,11 +26,10 @@ test('Returned ChildProcess exitPromise is rejected on spawn errors', async t =>
 });
 
 test('inject your package `node_modules/.bin` directory in path', async t => {
-	const p = spawnShell('which xo', {
-		stdio: [0, 'pipe', 2],
-		shell: 'sh'
+	const p = spawnShell('which ava', {
+		stdio: [0, 'pipe', 2]
 	});
 
 	const output = await concat(p.stdout);
-	t.is(output, join(__dirname, '/node_modules/.bin/xo\n'));
+	t.is(output, join(__dirname, '/node_modules/.bin/ava\n'));
 });
