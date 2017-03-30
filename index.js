@@ -42,8 +42,8 @@ function spawnShell(command, options) {
 	const opts = merge({}, defaultOptions, options);
 	const shell = opts.shell || defaultShell;
 	delete opts.shell;
+
 	opts.env.PATH = npmRunPath({path: opts.env.PATH});
-	console.log({shell, opts, args: shellFlags().concat(command)})
 	const p = spawn(
 		shell,
 		shellFlags().concat(command),
