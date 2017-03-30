@@ -2,7 +2,7 @@
 
 > Run shell commands using child_process#spawn.
 
-[![Travis Build Status](https://img.shields.io/travis/parro-it/spawn-shell.svg)](http://travis-ci.org/parro-it/spawn-shell)
+[![Travis Build Status](https://img.shields.io/travis/parro-it/spawn-shell/master.svg)](http://travis-ci.org/parro-it/spawn-shell)
 [![NPM module](https://img.shields.io/npm/v/spawn-shell.svg)](https://npmjs.org/package/spawn-shell)
 [![NPM downloads](https://img.shields.io/npm/dt/spawn-shell.svg)](https://npmjs.org/package/spawn-shell)
 
