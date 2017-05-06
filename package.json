@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "default-shell": "^1.0.0",
-    "merge-options": "0.0.64",
+    "merge-options": "1.0.0",
     "npm-run-path": "^2.0.2"
   }
 }
