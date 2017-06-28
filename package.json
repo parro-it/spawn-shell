@@ -4,7 +4,7 @@
   "description": "Run shell commands using child_process#spawn.",
   "repository": "parro-it/spawn-shell",
   "license": "MIT",
-  "author": "parro-it",
+  "author": "Andrea Parodi <andrea@parro.it>",
   "scripts": {
     "test": "ava && xo"
   },
@@ -16,7 +16,7 @@
     "multiplatform"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "devDependencies": {
     "ava": "^0.18.2",
