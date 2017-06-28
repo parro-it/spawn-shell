@@ -1,6 +1,6 @@
 {
   "name": "spawn-shell",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Run shell commands using child_process#spawn.",
   "repository": "parro-it/spawn-shell",
   "license": "MIT",
