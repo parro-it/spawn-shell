@@ -1,12 +1,11 @@
 # spawn-shell
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/parro-it/spawn-shell.svg)](https://greenkeeper.io/)
-
-> Run shell commands using child_process#spawn.
-
 [![Travis Build Status](https://img.shields.io/travis/parro-it/spawn-shell/master.svg)](http://travis-ci.org/parro-it/spawn-shell)
 [![NPM module](https://img.shields.io/npm/v/spawn-shell.svg)](https://npmjs.org/package/spawn-shell)
 [![NPM downloads](https://img.shields.io/npm/dt/spawn-shell.svg)](https://npmjs.org/package/spawn-shell)
+
+> Run shell commands using child_process#spawn.
 
 # Features
 
@@ -52,4 +51,4 @@ npm install --save spawn-shell
 
 The MIT License (MIT)
 
-Copyright (c) 2016 parro-it
+Copyright (c) 2017 parro-it
