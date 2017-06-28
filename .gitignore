@@ -82,3 +82,6 @@ Temporary Items
 .Trash-*
 
 yarn.lock
+
+package-lock.json
+
