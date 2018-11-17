@@ -19,9 +19,9 @@
     "node": ">=6"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^1.0.0-rc.2",
     "stream-string": "^2.0.0",
-    "xo": "^0.19.0"
+    "xo": "^0.23.0"
   },
   "files": [
     "index.js"
