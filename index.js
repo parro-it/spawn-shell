@@ -4,7 +4,7 @@ const childProcess = require('child_process');
 const defaultShell = require('default-shell');
 const merge = require('merge-options');
 const npmRunPath = require('npm-run-path');
-
+/* eslint-disable-next-line prefer-destructuring */
 const spawn = childProcess.spawn;
 
 const defaultOptions = {

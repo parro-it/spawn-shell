@@ -1,7 +1,7 @@
 import {join} from 'path';
 import test from 'ava';
 import concat from 'stream-string';
-import spawnShell from './';
+import spawnShell from '.';
 
 test('Use shell to run commands', async t => {
 	const p = spawnShell('echo "it works"', {
@@ -21,7 +21,7 @@ test('Returned ChildProcess has a exitPromise prop that resolve with process exi
 test('Returned ChildProcess exitPromise is rejected on spawn errors', async t => {
 	const p = spawnShell('', {shell: 'unknown'});
 
-	const err = await t.throws(p.exitPromise);
+	const err = await t.throwsAsync(p.exitPromise);
 	t.is(err.code, 'ENOENT');
 });
 
