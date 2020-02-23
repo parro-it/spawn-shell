@@ -19,7 +19,7 @@
     "node": ">=6"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.2",
+    "ava": "^3.4.0",
     "stream-string": "^2.0.0",
     "xo": "^0.23.0"
   },
